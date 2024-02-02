@@ -1,9 +1,4 @@
-export const selectCategory = state => state.categories.category;
-export const selectListCategories = state => state.categories.items;
-export const selectPageCategories = state => state.categories.page;
-export const selectLimitCategories = state => state.categories.limit;
-export const selectTotalCategories = state => state.categories.total;
-export const selectExercises = state => state.exercises.items;
-export const selectPageExercises = state => state.exercises.page;
-export const selectTotalExercises = state => state.exercises.total;
-export const selectLimitExercises = state => state.exercises.limit;
+export const selectAdverts = (state) => state.adverts.adverts;
+export const selectBrand = (state) => state.adverts.brand;
+export const selectIsLoading = (state) => state.adverts.isLoading;
+export const selectFavorites = (state) => state.favorites.adverts;
