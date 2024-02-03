@@ -2,14 +2,17 @@
 // brands
 // adverts
 
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-axios.defaults.baseURL = "https://65bb657e52189914b5bbfb17.mockapi.io/api";
+axios.defaults.baseURL = 'https://65bb657e52189914b5bbfb17.mockapi.io/api';
+
+// url.searchParams.append('page', 1);
+// url.searchParams.append('limit', 8);
 
 export const getBrands = async () => {
   try {
-    const { data } = await axios.get("/brands");
+    const { data } = await axios.get(`/brands`);
     // console.log(data);
     return data;
   } catch (error) {
@@ -17,10 +20,12 @@ export const getBrands = async () => {
   }
 };
 export const getAllAdverts = createAsyncThunk(
-  "adverts/getAdverts",
-  async (thunkAPI) => {
+  'adverts/getAdverts',
+  async ({ limit = 8, page, make = '' }, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/adverts`);
+      const { data } = await axios.get(`/adverts`, {
+        params: { limit, page, make },
+      });
       console.log(data);
       return data;
     } catch (error) {
@@ -29,9 +34,9 @@ export const getAllAdverts = createAsyncThunk(
     }
   }
 );
-export const getAdvertById = async (id) => {
+export const getAdvertById = async id => {
   try {
-    const { data } = await axios.get("/adverts", {
+    const { data } = await axios.get(`/adverts`, {
       params: {
         id: id,
       },
@@ -43,7 +48,7 @@ export const getAdvertById = async (id) => {
   }
 };
 export const getAdvertsByFilters = createAsyncThunk(
-  "adverts/getAdverts",
+  'adverts/getAdverts',
   async ({ brand }, thunkAPI) => {
     try {
       console.log(brand);

@@ -1,10 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getAllAdverts } from "../rentalCars-api";
+import { createSlice } from '@reduxjs/toolkit';
+import { getAllAdverts } from '../rentalCars-api';
 
 const advertsSlice = createSlice({
-  name: "adverts",
+  name: 'adverts',
   initialState: {
-    brand: "",
+    brand: '',
     adverts: [],
     isShowModal: false,
     isLoading: false,
@@ -15,14 +15,15 @@ const advertsSlice = createSlice({
       state.brand = action.payload;
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(getAllAdverts.pending, (state) => {
+      .addCase(getAllAdverts.pending, state => {
         state.isLoading = true;
       })
       .addCase(getAllAdverts.fulfilled, (state, { payload }) => {
         console.log(payload);
-        state.adverts = payload;
+        state.adverts = state.adverts.concat(payload);
+        // state.adverts = [...state.adverts, ...payload];
         state.isLoading = false;
       })
       .addCase(getAllAdverts.rejected, (state, action) => {
