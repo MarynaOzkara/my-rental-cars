@@ -26,7 +26,6 @@ const AdvertCard = ({ id }) => {
         const data = await getAdvertById(id);
         const card = data[0];
         setCardData(card);
-        console.log(card);
       } catch (error) {
         console.log(error);
       }
@@ -39,11 +38,8 @@ const AdvertCard = ({ id }) => {
     model,
     years,
     description,
-    address,
     type,
     mileage,
-    functionalities,
-    accessories,
     rentalPrice,
     fuelConsumption,
     engineSize,
@@ -60,10 +56,10 @@ const AdvertCard = ({ id }) => {
       </MainInfoBlok>
       <SecondInfoBlok>
         <SecondInfoBlokItem>
-          <InfoText>{address.split(' ')[3]}</InfoText>
+          <InfoText>Kiev</InfoText>
         </SecondInfoBlokItem>
         <SecondInfoBlokItem>
-          <InfoText>{address.split(' ')[4]}</InfoText>
+          <InfoText>Ukraine</InfoText>
         </SecondInfoBlokItem>
         <SecondInfoBlokItem>
           <InfoText>Id: {id}</InfoText>
@@ -87,18 +83,26 @@ const AdvertCard = ({ id }) => {
       <WrapBlock>
         <Description>Accessories and functionalities:</Description>
         <SecondInfoBlok>
-          {accessories.map(accessor => (
-            <SecondInfoBlokItem>
-              <InfoText>{accessor}</InfoText>
-            </SecondInfoBlokItem>
-          ))}
+          <SecondInfoBlokItem>
+            <InfoText>Leather seats</InfoText>
+          </SecondInfoBlokItem>
+          <SecondInfoBlokItem>
+            <InfoText>Panoramic sunroof</InfoText>
+          </SecondInfoBlokItem>
+          <SecondInfoBlokItem>
+            <InfoText>Power liftgate</InfoText>
+          </SecondInfoBlokItem>
         </SecondInfoBlok>
         <SecondInfoBlok>
-          {functionalities.map(functionality => (
-            <SecondInfoBlokItem>
-              <InfoText>{functionality}</InfoText>
-            </SecondInfoBlokItem>
-          ))}
+          <SecondInfoBlokItem>
+            <InfoText>Premium audio system</InfoText>
+          </SecondInfoBlokItem>
+          <SecondInfoBlokItem>
+            <InfoText>Remote start</InfoText>
+          </SecondInfoBlokItem>
+          <SecondInfoBlokItem>
+            <InfoText>Blind-spot monitoring</InfoText>
+          </SecondInfoBlokItem>
         </SecondInfoBlok>
       </WrapBlock>
       <WrapBlock>
