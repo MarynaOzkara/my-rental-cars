@@ -4,15 +4,15 @@ import { getAllAdverts } from '../rentalCars-api';
 const advertsSlice = createSlice({
   name: 'adverts',
   initialState: {
-    brand: '',
     adverts: [],
+    total: 0,
     isShowModal: false,
     isLoading: false,
     isError: null,
   },
   reducers: {
-    setBrand(state, action) {
-      state.brand = action.payload;
+    setResetState(state) {
+      state.adverts = [];
     },
   },
   extraReducers: builder => {
@@ -21,9 +21,8 @@ const advertsSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getAllAdverts.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.adverts = state.adverts.concat(payload);
-        // state.adverts = [...state.adverts, ...payload];
+        state.total = payload.length;
         state.isLoading = false;
       })
       .addCase(getAllAdverts.rejected, (state, action) => {
@@ -32,5 +31,5 @@ const advertsSlice = createSlice({
       });
   },
 });
-export const { setBrand } = advertsSlice.actions;
+export const { setResetState, setBrand, setPrice } = advertsSlice.actions;
 export const advertsReducer = advertsSlice.reducer;

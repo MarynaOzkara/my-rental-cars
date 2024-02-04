@@ -3,16 +3,23 @@ import FiltersBar from '../components/FiltersBar/FiltersBar';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllAdverts } from '../redux/rentalCars-api';
-import { selectAdverts } from '../redux/selectors';
+import {
+  selectAdverts,
+  selectFilteredAdverts,
+  selectIsLoading,
+  selectTotal,
+} from '../redux/selectors';
 import AdvertsList from '../components/AdvertsList/AdvertsList';
 import LoadMore from 'components/Buttons/LoadMoreBtn';
+import Loader from 'components/Loader/Loader';
 
 const Catalog = () => {
   const dispatch = useDispatch();
   const adverts = useSelector(selectAdverts);
-
+  const filteredAdverts = useSelector(selectFilteredAdverts);
+  const isLoading = useSelector(selectIsLoading);
+  const total = useSelector(selectTotal);
   const [page, setPage] = useState(1);
-  console.log(page);
 
   const onLoadMore = () => {
     setPage(prevPage => prevPage + 1);
@@ -24,8 +31,13 @@ const Catalog = () => {
   return (
     <>
       <FiltersBar />
-      {adverts && <AdvertsList adverts={adverts} />}
-      <LoadMore onLoadMore={onLoadMore} />
+      {isLoading && <Loader />}
+      {filteredAdverts ? (
+        <AdvertsList adverts={filteredAdverts} />
+      ) : (
+        <AdvertsList adverts={adverts} />
+      )}
+      {total >= 8 && total !== null && <LoadMore onLoadMore={onLoadMore} />}
     </>
   );
 };

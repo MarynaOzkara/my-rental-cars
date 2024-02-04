@@ -1,7 +1,7 @@
-import { ButtonSearch } from "./Buttons.styled";
+import { ButtonSearch } from './Buttons.styled';
 
-const SearchButton = () => {
-  return <ButtonSearch type="submit">Search</ButtonSearch>;
+const SearchButton = ({ formSubmit }) => {
+  return <ButtonSearch onClick={formSubmit}>Search</ButtonSearch>;
 };
 
 export default SearchButton;

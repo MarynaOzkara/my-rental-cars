@@ -1,27 +1,30 @@
-import React from "react";
-import { FiltersWrap, Form, InputMileage } from "./FiltersBar.styled";
-import SearchButton from "../Buttons/SearchButton";
-import SelectModel from "../SelectModel/SelectModel";
-import SelectPrice from "../SelectPrice/SelectPrice";
-import { useDispatch, useSelector } from "react-redux";
-import { selectBrand } from "../../redux/selectors";
-import { getAdvertsByFilters } from "../../redux/rentalCars-api";
+import React from 'react';
+import { FiltersWrap } from './FiltersBar.styled';
+import SelectPrice from '../Selects/SelectPrice/SelectPrice';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectBrand, selectPrice } from '../../redux/selectors';
+import { getAdvertsByFilters } from '../../redux/rentalCars-api';
+import SelectModel from 'components/Selects/SelectModel/SelectModel';
+import SearchButton from 'components/Buttons/SearchButton';
+import { setResetState } from '../../redux/adverts/advertsSlice';
+import SelectMileage from 'components/Selects/SelectMileage/SelectMileage';
 
 const FiltersBar = () => {
   const currentBrand = useSelector(selectBrand);
-  console.log(currentBrand);
+  const currentPrice = useSelector(selectPrice);
+
   const dispatch = useDispatch();
-  const handleSubmit = () => {
-    dispatch(getAdvertsByFilters({ brand: currentBrand }));
+  const formSubmit = () => {
+    dispatch(setResetState());
+    dispatch(getAdvertsByFilters({ brand: currentBrand, price: currentPrice }));
   };
+
   return (
     <FiltersWrap>
-      <Form onSubmit={handleSubmit}>
-        <SelectModel />
-        <SelectPrice />
-        <InputMileage />
-        <SearchButton />
-      </Form>
+      <SelectModel />
+      <SelectPrice />
+      <SelectMileage />
+      <SearchButton formSubmit={formSubmit} />
     </FiltersWrap>
   );
 };

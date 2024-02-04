@@ -1,8 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const AdvertItemWrap = styled.li`
-  width: 274px;
-  height: 426px;
+  width: calc((100% - 3 * 29px) / 4);
   position: relative;
 
   &:hover img,
@@ -11,7 +10,7 @@ export const AdvertItemWrap = styled.li`
   }
 `;
 export const AdvertImgThumb = styled.div`
-  width: 274px;
+  width: 100%;
   height: 268px;
   border-radius: 14px;
   overflow: hidden;
@@ -69,7 +68,6 @@ export const InfoText = styled.p`
 `;
 export const FavWrap = styled.div`
   position: absolute;
-  z-index: 20;
   top: 16px;
   right: 16px;
   width: 16px;

@@ -1,7 +1,7 @@
-import { useState } from "react";
-import LearnMoreBtn from "../Buttons/LearnMoreBtn";
-import FavoritesBtn from "../FavotitesBtn/FavoritesBtn";
-import ModalDrop from "../Modal/Modal";
+import { useState } from 'react';
+import LearnMoreBtn from '../Buttons/LearnMoreBtn';
+import FavoritesBtn from '../FavotitesBtn/FavoritesBtn';
+import ModalDrop from '../Modal/Modal';
 import {
   AdvertItemWrap,
   AdvertImgThumb,
@@ -15,8 +15,8 @@ import {
   SecondInfoBlokItem,
   InfoText,
   FavWrap,
-} from "./AdvertsItem.styled";
-import AdvertCard from "../AdvertCard/AdvertCard";
+} from './AdvertsItem.styled';
+import AdvertCard from '../AdvertCard/AdvertCard';
 
 const AdvertsItem = ({
   make,
@@ -64,10 +64,10 @@ const AdvertsItem = ({
           </MainInfoBlok>
           <SecondInfoBlok>
             <SecondInfoBlokItem>
-              <InfoText>{address.split(" ")[3]}</InfoText>
+              <InfoText>{address.split(' ')[3]}</InfoText>
             </SecondInfoBlokItem>
             <SecondInfoBlokItem>
-              <InfoText>{address.split(" ")[4]}</InfoText>
+              <InfoText>{address.split(' ')[4]}</InfoText>
             </SecondInfoBlokItem>
             <SecondInfoBlokItem>
               <InfoText>{rentalCompany}</InfoText>

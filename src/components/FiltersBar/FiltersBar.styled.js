@@ -1,11 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FiltersWrap = styled.div`
-  width: 100%;
-`;
-export const Form = styled.form`
+  width: 859px;
+  margin: 0 auto;
   display: flex;
-  gap: 20px;
+  gap: 18px;
+  align-items: self-end;
+  justify-content: space-between;
 `;
-
-export const InputMileage = styled.input``;

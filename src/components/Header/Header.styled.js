@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const Navigation = styled.header`
   width: 100%;
@@ -10,6 +10,7 @@ export const MenuNav = styled.nav`
   margin: 0 auto;
   padding: 20px 128px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 100px;
 `;
@@ -20,9 +21,9 @@ export const NavWrap = styled.div`
 `;
 export const MenuLink = styled(NavLink)`
   text-decoration: none;
-  font-size: var(--fs-xl);
-  padding: 4px 16px;
-  border-radius: 4px;
+  font-size: var(--fs-lg);
+  padding: 8px 24px;
+  border-radius: 10px;
   transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--color-brend);
   &.active {
@@ -36,4 +37,13 @@ export const MenuLink = styled(NavLink)`
 `;
 export const LogoLink = styled(NavLink)`
   text-decoration: none;
+`;
+export const PhoneLink = styled.a`
+  text-decoration: none;
+  color: var(--color-brend);
+  font-size: var(--fs-md);
+  &:hover,
+  :focus {
+    color: var(--color-acsent);
+  }
 `;
