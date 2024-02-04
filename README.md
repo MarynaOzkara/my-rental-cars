@@ -12,8 +12,8 @@ You can find a car for your next trip from our catalog, filter by brand car, pri
 If you like some car, you can add it to Favorites to contact us later.
 
 
-![Catalog of rental cars](./assets/rentalcar3.png)
+![Favorites cars](./assets/rentalcr3.png)
 
 Press to Learn more button, you can find detailed information about the car: model, mileage, engine size, location, etc.
 
-![Catalog of rental cars](./assets/rentalcar3.png)
+![Car detailed information](./assets/rentalcar4.png)
