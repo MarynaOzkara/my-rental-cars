@@ -21,7 +21,7 @@ const advertsSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getAllAdverts.fulfilled, (state, { payload }) => {
-        state.adverts = state.adverts.concat(payload);
+        state.adverts = [...state.adverts, ...payload];
         state.total = payload.length;
         state.isLoading = false;
       })

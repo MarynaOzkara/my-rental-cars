@@ -14,10 +14,10 @@ export const getBrands = async () => {
 };
 export const getAllAdverts = createAsyncThunk(
   'adverts/getAdverts',
-  async ({ limit = 8, page, brand, price }, thunkAPI) => {
+  async ({ limit = 8, page, brand, rentalPrice }, thunkAPI) => {
     try {
       const { data } = await axios.get(`/adverts`, {
-        params: { limit, page, make: brand, rentalPrice: price },
+        params: { limit, page, make: brand, rentalPrice: rentalPrice },
       });
 
       return data;
@@ -40,18 +40,3 @@ export const getAdvertById = async id => {
     console.log(error);
   }
 };
-export const getAdvertsByFilters = createAsyncThunk(
-  'adverts/getAdverts',
-  async ({ brand, price }, thunkAPI) => {
-    try {
-      const { data } = await axios.get(`/adverts`, {
-        params: { make: brand, rentalPrice: price },
-      });
-
-      return data;
-    } catch (error) {
-      console.log(error.message);
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);

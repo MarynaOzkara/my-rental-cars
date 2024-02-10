@@ -1,7 +1,7 @@
 import { ButtonSearch } from './Buttons.styled';
 
-const SearchButton = ({ formSubmit }) => {
-  return <ButtonSearch onClick={formSubmit}>Search</ButtonSearch>;
+const SearchButton = () => {
+  return <ButtonSearch>Search</ButtonSearch>;
 };
 
 export default SearchButton;

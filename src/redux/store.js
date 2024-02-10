@@ -12,7 +12,6 @@ import persistStore from 'redux-persist/es/persistStore';
 import storage from 'redux-persist/lib/storage';
 import { favoriteReducer } from './favorites/favoritesSlice';
 import { advertsReducer } from './adverts/advertsSlice';
-import { filtersReducer } from './filters/filtersSlice';
 
 const favoritePersistConfig = {
   key: 'favorite',
@@ -20,7 +19,6 @@ const favoritePersistConfig = {
 };
 const reduser = combineReducers({
   adverts: advertsReducer,
-  filters: filtersReducer,
   favorites: persistReducer(favoritePersistConfig, favoriteReducer),
 });
 export const store = configureStore({

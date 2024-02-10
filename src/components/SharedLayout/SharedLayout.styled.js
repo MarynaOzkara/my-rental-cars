@@ -50,3 +50,12 @@ export const MainLink = styled(Link)`
     background-color: var(--color-acsent);
   }
 `;
+export const MessageWrap = styled.div`
+  margin: 50px auto;
+`;
+export const MessageText = styled.h2`
+  font-weight: var(--fw-semi-bold);
+  font-size: var(--fs-xl);
+  color: var(--color-text);
+  text-align: center;
+`;

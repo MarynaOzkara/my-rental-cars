@@ -90,6 +90,7 @@ const AdvertsItem = ({
         </AddInfoWrap>
         <LearnMoreBtn setIsModalOpen={setIsModalOpen} />
       </AdvertItemWrap>
+
       <ModalDrop
         isOpen={isModalOpen}
         onClose={() => {

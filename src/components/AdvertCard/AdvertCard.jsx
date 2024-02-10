@@ -25,6 +25,7 @@ const AdvertCard = ({ id }) => {
       try {
         const data = await getAdvertById(id);
         const card = data[0];
+        console.log(card);
         setCardData(card);
       } catch (error) {
         console.log(error);

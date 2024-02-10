@@ -2,17 +2,12 @@ import Select from 'react-select';
 import { SelectWrap, Label } from './SelectModel.styled';
 import { useEffect, useState } from 'react';
 import { getBrands } from '../../../redux/rentalCars-api';
-import { useDispatch } from 'react-redux';
-import { setBrand } from '../../../redux/filters/filtersSlice';
+
 import '../style.css';
 
-const SelectModel = () => {
-  const dispatch = useDispatch();
+const SelectModel = ({ value, onChange }) => {
   const [brandsList, setBrandsList] = useState('');
 
-  const handleChange = newBrand => {
-    dispatch(setBrand(newBrand.value));
-  };
   useEffect(() => {
     const fetchBrends = async () => {
       try {
@@ -36,7 +31,8 @@ const SelectModel = () => {
         <Select
           id="brandSelect"
           options={brandsList}
-          onChange={handleChange}
+          value={value}
+          onChange={onChange}
           placeholder="Enter the text"
           classNamePrefix="custom-select"
           components={{
